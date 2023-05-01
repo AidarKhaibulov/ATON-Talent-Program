@@ -1,6 +1,6 @@
 
 
-public class RBT extends BaseBinaryTree implements BinarySearchTree {
+public class RBT extends BinaryTree {
 
     static final boolean RED = false;
     static final boolean BLACK = true;
@@ -17,6 +17,21 @@ public class RBT extends BaseBinaryTree implements BinarySearchTree {
                     node = node.right;
                 }
             }
+        return null;
+    }
+    public  Node editNode(long key, String name, double value) {
+        Node node = root;
+        while (node != null) {
+            if (key == node.data.account) {
+                node.data.name=name;
+                node.data.value=value;
+                return node;
+            } else if (key < node.data.account) {
+                node = node.left;
+            } else {
+                node = node.right;
+            }
+        }
         return null;
     }
     public  Node searchNode(String name) {
